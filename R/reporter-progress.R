@@ -8,7 +8,7 @@ NULL
 #' is the default reporting reporter used by [test_dir()] and [test_file()].
 #'
 #' As an additional benefit, this reporter will praise you from time-to-time
-#' if all your tests pass.
+#' if all your tests pass.  To turn of praise set `Sys.setenv("grinch" = TRUE)`.
 #'
 #' @export
 #' @family reporters
@@ -44,7 +44,7 @@ ProgressReporter <- R6::R6Class("ProgressReporter",
                           ...) {
       super$initialize(...)
       self$max_fail <- max_failures
-      self$show_praise <- show_praise
+      self$show_praise <- show_praise & !isTRUE(Sys.getenv("grinch"))
       self$min_time <- min_time
       self$update_interval <- update_interval
     },

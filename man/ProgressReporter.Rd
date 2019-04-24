@@ -15,7 +15,7 @@ is the default reporting reporter used by \code{\link[=test_dir]{test_dir()}} an
 }
 \details{
 As an additional benefit, this reporter will praise you from time-to-time
-if all your tests pass.
+if all your tests pass.  To turn of praise set \code{Sys.setenv("grinch" = TRUE)}.
 }
 \seealso{
 Other reporters: \code{\link{CheckReporter}},

@@ -12,7 +12,7 @@ NULL
 #' with [auto_test()]
 #'
 #' As an additional benefit, this reporter will praise you from time-to-time
-#' if all your tests pass.
+#' if all your tests pass.  To turn of praise set `Sys.setenv("grinch" = TRUE)`.
 #'
 #' @export
 #' @family reporters
@@ -35,7 +35,7 @@ SummaryReporter <- R6::R6Class("SummaryReporter",
       self$skips <- Stack$new()
       self$warnings <- Stack$new()
       self$max_reports <- max_reports
-      self$show_praise <- show_praise
+      self$show_praise <- show_praise & !isTRUE(Sys.getenv("grinch"))
       self$omit_dots <- omit_dots
     },
 
